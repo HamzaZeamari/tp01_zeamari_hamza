@@ -22,7 +22,6 @@
     $(document).ready(function() {
         $('#CP').change(function() {
             let characterCount = $(this).val().length;
-            console.log(characterCount);
             if (characterCount == 4 || characterCount == 5) {
                 $('#cpHelp').hide();
             } else {
@@ -33,7 +32,6 @@
     $(document).ready(function() {
         $('#ville').change(function() {
             let characterCount = $(this).val().length;
-            console.log(characterCount);
             if (characterCount > 0) {
                 $('#villeHelp').hide();
             } else {
@@ -44,7 +42,6 @@
     $(document).ready(function() {
         $('#tel').change(function() {
             let characterCount = $(this).val().length;
-            console.log(characterCount);
             if (characterCount = 10) {
                 $('#telHelp').hide();
             } else {
@@ -64,7 +61,6 @@
     $(document).ready(function() {
         $('#password').change(function() {
             let characterCount = $(this).val().length;
-            console.log(characterCount);
             if (characterCount >= 6) {
                 $('#passwordHelp').hide();
             } else {
@@ -85,8 +81,7 @@
     $(document).ready(function() {
             $('#login').change(function() {
                 let characterCount = $(this).val().length;
-                console.log(characterCount);
-                if (characterCount > 3) {
+                if (characterCount >= 3) {
                     $('#loginHelp').hide();
                 } else {
                     $('#loginHelp').show();
@@ -100,19 +95,64 @@
         return res.test($email);
     }
 
+    $(document).ready(function() {
+        $('#formValid').on('submit', function(event) {
+            let countVerif = 0;
+            if ($('#nom').val().length < 3) {
+                console.log($('#nom').val().length);
+                $('#nomHelp').css('color', 'red');
+                countVerif++;
 
+            }
+            if ($('#prenom').val().length < 3) {
+                $('#prenomHelp').css({ color: "red" });
 
-    $("#formValid").submit(function(event) {
-        event.preventDefault();
-        let countVerif = 0;
-        if ($('#nom').val().length < 3) {}
-        if ($('#prenom').val().length < 3) {}
-        if ($('#CP').val().length < 3) {}
-        if ($('#ville').val().length < 3) {}
-        if ($('#tel').val().length < 3) {}
-        if ($('#email').val().length < 3) {}
-        if ($('#password').val().length < 3) {}
-        if ($('#confpassword').val().length < 3) {}
-        if ($('#login').val().length < 3) {}
+                countVerif++;
+            }
+            if ($('#CP').val().length != 4 || $('#CP').val().length != 5) {
+                $('#cpHelp').css({ color: "red" });
 
+                countVerif++;
+                console.log(countVerif);
+            }
+            if ($('#ville').val().length < 0) {
+                $('#villeHelp').css({ color: "red" });
+
+                countVerif++;
+            }
+            if ($('#tel').val().length != 10) {
+                $('#telHelp').css({ color: "red" });
+
+                countVerif++;
+                console.log(countVerif);
+            }
+            if (!validerEmail($('#email'))) {
+                $('#emailHelp').css({ color: "red" });
+
+                countVerif++;
+                console.log(countVerif);
+            }
+            if ($('#password').val().length < 6) {
+                $('#passwordHelp').css({ color: "red" });
+
+                countVerif++;
+            }
+            if ($('#confpassword').val() != $('#password').val()) {
+                $('#confpasswordHelp').css({ color: "red" });
+
+                countVerif++;
+            }
+            if ($('#login').val().length < 3) {
+                $('#loginHelp').css({ color: "red" });
+
+                countVerif++;
+            }
+            if (countVerif != 0) {
+                event.preventDefault();
+            } else {
+                alert("Tout est validé !!!");
+                return true;
+            }
+
+        });
     });
