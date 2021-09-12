@@ -42,19 +42,10 @@
     $(document).ready(function() {
         $('#tel').change(function() {
             let characterCount = $(this).val().length;
-            if (characterCount = 10) {
+            if (characterCount == 10) {
                 $('#telHelp').hide();
             } else {
                 $('#telHelp').show();
-            }
-        });
-    })
-    $(document).ready(function() {
-        $('#email').change(function() {
-            if (validerEmail(this.value)) {
-                $('#emailHelp').hide();
-            } else {
-                $('#emailHelp').show();
             }
         });
     })
@@ -109,25 +100,18 @@
 
                 countVerif++;
             }
-            if ($('#CP').val().length != 4 || $('#CP').val().length != 5) {
+            if ($('#CP').val().length != 4 && $('#CP').val().length != 5) {
                 $('#cpHelp').css({ color: "red" });
 
                 countVerif++;
                 console.log(countVerif);
             }
-            if ($('#ville').val().length < 0) {
+            if ($('#ville').val().length >= 0) {
                 $('#villeHelp').css({ color: "red" });
-
                 countVerif++;
             }
             if ($('#tel').val().length != 10) {
                 $('#telHelp').css({ color: "red" });
-
-                countVerif++;
-                console.log(countVerif);
-            }
-            if (!validerEmail($('#email'))) {
-                $('#emailHelp').css({ color: "red" });
 
                 countVerif++;
                 console.log(countVerif);
