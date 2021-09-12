@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Exercice TP1</title>
+</head>
+<body>
+    <form onsubmit="funcValidation()">
+        <label for="nom">Nom:</label><br>
+        <input type="text" id="nom" name="nom"><br>
+        <small id="nomHelp" class="form-text text-muted">Entrez votre nom (Minimum 3 caractères)</small><br>
+
+
+        <label for="prenom">Prenom:</label><br>
+        <input type="text" id="prenom" name="prenom"><br>
+        <small id="prenomHelp" class="form-text text-muted">Entrez votre prénom (Minimum 3 caractères)</small><br>
+
+
+        <label for="CP">CP:</label><br>
+        <input type="text" id="CP" name="CP"><br>
+        <small id="cpHelp" class="form-text text-muted">Entrez votre code postal (Minimum 4 caractères)</small><br>
+
+
+        <label for="ville">Ville:</label><br>
+        <input type="text" id="ville" name="ville"><br>
+        <small id="villeHelp" class="form-text text-muted">Entrez votre ville</small><br>
+
+
+        <label for="tel">Tel:</label><br>
+        <input type="text" id="tel" name="tel"><br>
+        <small id="telHelp" class="form-text text-muted">Entrez votre numéro de téléphone</small><br>
+
+
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <small id="emailHelp" class="form-text text-muted">Entrez une adresse e-mail valide</small><br>
+
+
+        <label for="civilite" >Civilite:</label><br>
+        <select name="thelist" onChange="combo(this, 'civilite')">
+            <option> Homme</option>
+            <option> Femme </option>
+        </select><br>
+
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <small id="passwordHelp" class="form-text text-muted">Entrez un mot de passe (Minimum 6 caractères)</small><br>
+
+
+        <label for="confpassword">Password Confirmation:</label><br>
+        <input type="password" id="confpassword" name="confpassword"><br>
+        <small id="confirmpHelp" class="form-text text-muted">Confirmez votre mot de pass</small><br>
+
+
+        <label for="login">Login:</label><br>
+        <input type="text" id="login" name="login"><br>
+        <small id="loginHelp" class="form-text text-muted">Entrez votre login (Minimum 3 caractères)</small><br>
+
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
